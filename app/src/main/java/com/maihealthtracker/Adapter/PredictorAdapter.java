@@ -2,6 +2,7 @@ package com.maihealthtracker.Adapter;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.maihealthtracker.Models.Predictor;
 import com.maihealthtracker.Models.Record;
 import com.maihealthtracker.R;
 import com.maihealthtracker.WaterBottomSheet;
+import com.maihealthtracker.WebViewActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -56,6 +58,16 @@ public class PredictorAdapter extends RecyclerView.Adapter<PredictorAdapter.Pred
 
         holder.name.setText(predictor.getName());
         Glide.with(mContext).load(predictor.getImage()).into(holder.image);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, WebViewActivity.class);
+                intent.putExtra("link", predictor.getUrl());
+                intent.putExtra("title", predictor.getName());
+                mContext.startActivity(intent);
+            }
+        });
         
 
     }

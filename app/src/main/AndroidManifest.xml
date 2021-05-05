@@ -42,6 +42,8 @@
         <receiver
             android:name=".AlarmReceiver"
             android:process=":remote" />
+
+        <activity android:name=".WebViewActivity" />
     </application>
 
 </manifest>

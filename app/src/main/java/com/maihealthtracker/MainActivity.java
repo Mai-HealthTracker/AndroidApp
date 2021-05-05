@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         if (FirebaseAuth.getInstance().getCurrentUser()!=null){
 
             SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT, Locale.getDefault());
